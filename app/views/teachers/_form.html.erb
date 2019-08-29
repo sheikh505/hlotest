@@ -1,0 +1,53 @@
+<%= form_with(model: teacher, local: true) do |form| %>
+  <% if teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+
+    <select name="teacher[gender]" id="g1">
+      <option selected>Gender Select</option>
+      <option value="Male"> Male</option>
+      <option value="female">Female</option>
+    </select>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :cllass_id %>
+    <%=collection_select(:teacher, :cllass_id, Cllass.all, :id, :name, prompt: true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

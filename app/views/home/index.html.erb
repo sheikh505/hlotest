@@ -1,0 +1,208 @@
+<h2>Root Page</h2>
+
+
+<div class="root"  style="margin-top: 20px;margin-left:20px ">
+
+
+
+    <table>
+
+      <tr>
+        <td><%=link_to "classes ADD",new_cllass_path %></td>
+      </tr>
+
+
+      <tr>
+        <td><%=link_to "Teacher ADD",new_teacher_path %></td>
+      </tr>
+
+
+
+      <tr>
+        <td><%=link_to "Student ADD",new_student_path %></td>
+      </tr>
+
+
+      <tr>
+        <td><%=link_to "courses ADD",new_subject_path %></td>
+      </tr>
+    </table>
+
+</div>
+
+
+
+<br>
+<br>
+
+
+<div class="index_class_div">
+
+  <h3>Cllasses</h3>
+
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th colspan="3">option</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @cllass.each do |cllass| %>
+      <tr>
+        <td><%=cllass.id %></td>
+        <td><%= cllass.name %></td>
+        <td><%= link_to 'Show', cllass %></td>
+        <td><%= link_to 'Edit', edit_cllass_path(cllass) %></td>
+        <td><%= link_to 'Destroy', cllass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Cllass', new_cllass_path %>
+
+</div>
+
+<br>
+<br>
+
+<div class="teacher_index">
+
+  <h3>Teachers</h3>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Mobile</th>
+      <th>Gender</th>
+      <th>Cllass id</th>
+      <th>Cllass name</th>
+      <th colspan="3">option</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.name %></td>
+        <td><%= teacher.address %></td>
+        <td><%= teacher.city %></td>
+        <td><%= teacher.mobile %></td>
+        <td><%= teacher.gender %></td>
+        <td><%= teacher.cllass.id %></td>
+        <td><%= teacher.cllass.name %></td>
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+  <%= link_to 'New Teacher', new_teacher_path %>
+</div>
+
+<br>
+<br>
+
+<div class="student_index">
+
+  <h3>Subjects</h3>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Price</th>
+      <th>Cllass</th>
+      <th>Cllass name</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.name %></td>
+        <td><%= subject.code %></td>
+        <td><%= subject.price %></td>
+        <td><%= subject.cllass.id %></td>
+        <td><%= subject.cllass.name %></td>
+        <td><%= link_to 'Show', subject %></td>
+        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
+        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+  <%= link_to 'New Subject', new_subject_path %>
+
+</div>
+
+
+
+
+<div class="student_index">
+
+
+  <h3>Students</h3>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Mobile</th>
+      <th>Gender</th>
+      <th>Cllass id</th>
+      <th>Cllass name</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.address %></td>
+        <td><%= student.city %></td>
+        <td><%= student.mobile %></td>
+        <td><%= student.gender %></td>
+        <td><%= student.cllass.id %></td>
+        <td><%= student.cllass.name %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+  <%= link_to 'New Student', new_student_path %>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
